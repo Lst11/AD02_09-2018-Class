@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AD02_09-2018 - Class</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="logIn">Log in</string>
+    <string name="createAccount">Create account</string>
+    <string name="forgotPassword"><u>Forgot your username/password? </u></string>
+
+</resources>
