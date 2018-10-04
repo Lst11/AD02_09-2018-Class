@@ -11,9 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".Lesson2Activity"
-            android:screenOrientation="portrait">
+        <activity android:name=".Lesson6Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +19,11 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Lesson2SecondActivity"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+        <!--android:name=".Lesson2SecondActivity"-->
+        <!--android:screenOrientation="portrait" />-->
+        <service android:name=".cw6.MyService"></service>
+        <service android:name=".cw6.MyIntentService"></service>
 
     </application>
 

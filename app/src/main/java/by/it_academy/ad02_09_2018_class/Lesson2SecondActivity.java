@@ -3,6 +3,7 @@ package by.it_academy.ad02_09_2018_class;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,10 +34,28 @@ public class Lesson2SecondActivity extends Activity {
         String username = intent.getStringExtra(EXTRA_USERNAME);
         String password = intent.getStringExtra(EXTRA_PASSWORD);
 
-        TextView textView = findViewById(R.id.resultTextView);
-        textView.setText(BuildConfig.SERVER_URL + " " + password);
+
+        MyView myView = new MyView(this);
+        myView.setListener(new MyView.OnMyViewOnClickListener() {
+            @Override
+            public void onClick() {
+
+            }
+        });
 
 
+
+    }
+
+    @Override
+    protected void onStart() {
+//        sendBroadcast();
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     // To back to the previously activity

@@ -35,10 +35,10 @@ public class Lesson2Activity extends Activity {
     }
 
     private void startSecondActivity() {
-        if (TextUtils.isEmpty(passwordEditText.getText()) || TextUtils.isEmpty(passwordEditText.getText())) {
-            Toast.makeText(this, R.string.login_error, Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(passwordEditText.getText()) || TextUtils.isEmpty(passwordEditText.getText())) {
+//            Toast.makeText(this, R.string.login_error, Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         Lesson2SecondActivity.show(this, String.valueOf(usernmeEditText.getText()), String.valueOf(passwordEditText.getText()));
     }
