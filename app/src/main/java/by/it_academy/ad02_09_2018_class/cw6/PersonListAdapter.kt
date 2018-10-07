@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class PersonListAdapter : RecyclerView.Adapter<PersonListAdapter.Holder>() {
+class PersonListAdapter(val onItemClick: (Person) -> Unit) : RecyclerView.Adapter<PersonListAdapter.Holder>() {
 
     private var listData: List<Person> = emptyList()
         set(value) {
@@ -15,9 +15,12 @@ class PersonListAdapter : RecyclerView.Adapter<PersonListAdapter.Holder>() {
             notifyDataSetChanged()
         }
 
+//    var onItemClick: OnItemClick? = null - не нужна, потому что заменили объявление в конструкторе
+
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): Holder {
         var view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_person, viewGroup, false)
+
         return Holder(view)
     }
 
@@ -28,9 +31,14 @@ class PersonListAdapter : RecyclerView.Adapter<PersonListAdapter.Holder>() {
         val person = listData[position]
         holder.nameTextView.setText(person.name ?: "")
         holder.surnameTextView.setText(person?.surname ?: "")
-        holder.vi
+        holder.itemView.setOnClickListener {
+            //it - переменная (View), на которую нажали
+//            onItemClick?.onItemClick(person) - изменили на строку ниже после объявления
+            onItemClick(person)
+        }
     }
-
+//    ** при различных дизайнах для items
+//    override fun getItemViewType(position" Int): Int{ }
 
     inner class Holder : RecyclerView.ViewHolder {
         var nameTextView: TextView
@@ -41,6 +49,10 @@ class PersonListAdapter : RecyclerView.Adapter<PersonListAdapter.Holder>() {
             nameTextView = view.findViewById(R.id.name)
             surnameTextView = view.findViewById(R.id.name)
         }
+    }
+
+    interface OnItemClick {
+        fun onItemClick(person: Person)
     }
 
 }

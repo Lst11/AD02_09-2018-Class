@@ -15,7 +15,10 @@ import android.widget.ProgressBar
 import by.it_academy.ad02_09_2018_class.R
 
 class Lesson6Activity : Activity() {
-    private val adapter = PersonListAdapter()
+    private val adapter = PersonListAdapter {
+        Log.e("AAA", "Person name = ${it.name}")
+    }
+    
     private lateinit var progressBar: ProgressBar
 
 
@@ -35,8 +38,14 @@ class Lesson6Activity : Activity() {
         //(this, LinearLayout.HORIZONTAL, false) - слева-направо
         //GradeLayoutManager (this,4) - колонки
         recycleView.setHasFixedSize(true) // одинаковый ли размер ячеек?
-        recycleView.adapter
+        recycleView.adapter = adapter
 
+//
+//        adapter.onItemClick = object : PersonListAdapter.OmItemClick {
+//            override fun onItemClick(person: Person){
+//                Log.e("AAA", "Person name = ${person.name}")
+//            }
+//        }
 
 //        bindService(Intent(this,MyService::class.java),serviceConnection, Context.BIND_AUTO_CREATE)
 //        val intent = Intent (this,MyIntentService::class.java)
